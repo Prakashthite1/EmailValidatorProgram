@@ -1,0 +1,51 @@
+package com.Simplilearn.Email.Validator;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class EmailValidator {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Enter your email address :");
+		
+		Scanner emailInput = new Scanner(System.in);
+		String UserInput = emailInput.next();
+		
+		System.out.println("Entered your email address is :" + UserInput);
+		
+	List<String> emailList = new ArrayList<>();
+	   
+	    emailList.add("abc@gmail.com");
+	    emailList.add("xyz@gmail.com");
+	    emailList.add("lmn@gmail.com");
+	    emailList.add("prakashthite1@gmail.com");
+	    
+	    System.out.println("Email Address List::" + emailList);
+	    
+	    EmailValidator emailvalidator = new EmailValidator();
+	    
+	    String emailvalidationstatus = emailvalidator.checkforvalidemailaddress(UserInput,emailList);
+	    
+	    System.out.println(emailvalidationstatus);
+	    
+	    
+	}
+      private String checkforvalidemailaddress(String UserInput, List<String> emailList) {
+		  
+    	  String status;
+		   
+		 for(int index=0;index < emailList.size();index++) {
+			
+			  if(emailList.get(index).equals(UserInput)) {
+				status = UserInput + " is Valid";
+				return status;
+			}
+			
+		}
+		status = UserInput + " is Not Valid";
+		return status;
+	}
+
+}
